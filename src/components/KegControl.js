@@ -9,32 +9,32 @@ class KegControl extends React.Component {
         {
           name: "Dragon Saliva",
           Brand: "Fantasy Tap",
-          Alcohol Content: "98%",
-          Price: 15
+          alcContent: "98%",
+          price: 15
         },
         {
           name: "Hero's Bane",
           Brand: "Fantasy Tap",
-          Alcohol Content: "5%",
-          Price: 6
+          alcContent: "5%",
+          price: 6
         },
         {
           name: "Troll Power",
           Brand: "Doom Brew",
-          Alcohol Content: "9%",
-          Price: 7
+          alcContent: "9%",
+          price: 7
         },
         {
           name: "Uruk-Hai",
           Brand: "Mordor MorBeer",
-          Alcohol Content: "7%",
-          Price: 8
+          alcContent: "7%",
+          price: 8
         },
         {
           name: "The Witches Whip",
           Brand: "Fantasy Tap",
-          Alcohol Content: "5%",
-          Price: 6
+          alcContent: "5%",
+          price: 6
         }
       ];
     }
