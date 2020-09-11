@@ -5,46 +5,48 @@ class KegControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      CurrentKegs = [
+      CurrentKegs: [
         {
           name: "Dragon Saliva",
-          Brand: "Fantasy Tap",
+          brand: "Fantasy Tap",
           alcContent: "98%",
           price: 15
         },
         {
           name: "Hero's Bane",
-          Brand: "Fantasy Tap",
+          brand: "Fantasy Tap",
           alcContent: "5%",
           price: 6
         },
         {
           name: "Troll Power",
-          Brand: "Doom Brew",
+          brand: "Doom Brew",
           alcContent: "9%",
           price: 7
         },
         {
           name: "Uruk-Hai",
-          Brand: "Mordor MorBeer",
+          brand: "Mordor MorBeer",
           alcContent: "7%",
           price: 8
         },
         {
           name: "The Witches Whip",
-          Brand: "Fantasy Tap",
+          brand: "Fantasy Tap",
           alcContent: "5%",
           price: 6
         }
-      ];
+      ]
     }
   }
 
   render() {
     return (
       <React.Fragment>
-        <KegList />
+        <KegList currentKegs = {this.state.CurrentKegs}/>
       </React.Fragment>
     );
   }
 }
+
+export default KegControl
