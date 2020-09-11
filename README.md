@@ -36,7 +36,11 @@ _Better description here_
 
 | Spec | Input | Output | Status |
 | :------------- | :------------- | :------------- | :------------- | 
-|  |  |   |  |
+|  see a list/menu of all available kegs. For each keg, I want to see its name, brand, price and alcoholContent |  |   | False |
+| I want to submit a form to add a new keg to a list.  |  |   | False |
+|  I want to be able to click on a keg to see its detail page. |  |   | False |
+| I want to see how many pints are left in a keg. |  |   | False |
+| I want to be able to click a button next to a keg whenever I sell a pint of it. This should decrease the number of pints left by 1. Pints should not be able to go below 0. |  |   | False |
 
 ## **💻SETUP**
 
