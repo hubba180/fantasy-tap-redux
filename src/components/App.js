@@ -4,6 +4,7 @@ function App(){
 
   return (
     <React.Fragment>
+      <Header />
     </React.Fragment>
   );
 }
