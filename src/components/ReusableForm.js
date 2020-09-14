@@ -10,7 +10,32 @@ function ReusuableForm(props) {
         <Form.Group>
           <Form.Control
             type='text'
-            name='name' />
+            name='name' 
+            placeholder='Beer Name' />
+        </Form.Group>
+        <Form.Group>
+          <Form.Control
+            type='text'
+            name='brand' 
+            placeholder='Beer Brand' />
+        </Form.Group>
+        <Form.Group>
+          <Form.Control
+            type='text'
+            name='alcContent' 
+            placeholder='Alcohol Content' />
+        </Form.Group>
+        <Form.Group>
+          <Form.Control
+            type='text'
+            name='price' 
+            placeholder='Price' />
+        </Form.Group>
+        <Form.Group>
+          <Form.Control
+            type='text'
+            name='quantity' 
+            placeholder='Quantity' />
         </Form.Group>
         <div style={{padding: 10}}>
           <Button variant="info" type='submit'>{props.buttonText}</Button>
