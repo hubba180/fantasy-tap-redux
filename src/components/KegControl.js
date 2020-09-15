@@ -80,6 +80,14 @@ class KegControl extends React.Component {
     } 
   }
 
+  handleDeletingKeg = (id) => {
+    const newKegList = this.state.CurrentKegs.filter(keg => keg.id !== id);
+    this.setState({
+      CurrentKegs: newKegList,
+      SelectedKeg: null
+    });
+  }
+
   handleClick = () => {
     if (this.state.SelectedKeg != null) {
       this.setState({
@@ -97,8 +105,8 @@ class KegControl extends React.Component {
     let CurrentVisibleState = null;
     let buttonText = null;
     if (this.state.SelectedKeg != null) {
-      CurrentVisibleState = <KegDetail keg = {this.state.SelectedKeg} onServeDrink = {this.handleServeDrink}/>
-      buttonText = "Return Current Kegs";
+      CurrentVisibleState = <KegDetail keg = {this.state.SelectedKeg} onServeDrink = {this.handleServeDrink} onDeleteKeg = {this.handleDeletingKeg} />
+      buttonText = "Return To Current Kegs";
     }
     else if (this.state.FormSwitch === false) {
       CurrentVisibleState = <KegList currentKegs = {this.state.CurrentKegs} onKegSelection= {this.handleSelectedKeg} />;
