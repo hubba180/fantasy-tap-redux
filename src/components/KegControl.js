@@ -16,7 +16,7 @@ class KegControl extends React.Component {
           brand: "Fantasy Tap",
           alcContent: "98%",
           price: 15,
-          quantity: 124,
+          quantity: 1,
           id: v4()
         },
         {
@@ -67,6 +67,19 @@ class KegControl extends React.Component {
       FormSwitch: false});
   }
 
+  handleServeDrink = (id) => {
+    const selectedKeg = this.state.CurrentKegs.filter(keg => keg.id === id)[0];
+    if (selectedKeg.quantity >= 0){
+      const newQuantity = selectedKeg.quantity - 1;
+      const newKeg = { name: selectedKeg.name, brand: selectedKeg.brand, alcContent: selectedKeg.alcContent, price: selectedKeg.price, quantity: newQuantity, id: selectedKeg.id }
+      const newKegList = this.state.CurrentKegs.filter(keg => keg.id !== id).concat(newKeg);
+      this.setState({
+        CurrentKegs: newKegList,
+        FormSwitch: false,
+        SelectedKeg: null});
+    } 
+  }
+
   handleClick = () => {
     if (this.state.SelectedKeg != null) {
       this.setState({
@@ -84,7 +97,7 @@ class KegControl extends React.Component {
     let CurrentVisibleState = null;
     let buttonText = null;
     if (this.state.SelectedKeg != null) {
-      CurrentVisibleState = <KegDetail keg = {this.state.SelectedKeg} />
+      CurrentVisibleState = <KegDetail keg = {this.state.SelectedKeg} onServeDrink = {this.handleServeDrink}/>
       buttonText = "Return Current Kegs";
     }
     else if (this.state.FormSwitch === false) {

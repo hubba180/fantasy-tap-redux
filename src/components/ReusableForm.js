@@ -2,6 +2,7 @@ import React from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PropTypes from "prop-types";
 
 function ReusuableForm(props) {
   return(
@@ -44,5 +45,9 @@ function ReusuableForm(props) {
     </React.Fragment>
   )
 }
+
+ReusuableForm.propTypes = {
+  formSubmissionHandler: PropTypes.func
+};
 
 export default ReusuableForm
