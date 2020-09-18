@@ -22,7 +22,7 @@
 
 </p>
 
-_Better description here_
+![GitHub Logo](/assets/componentHierarchy.png)
 
 
 ## **✅REQUIREMENTS**
