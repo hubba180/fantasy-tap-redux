@@ -51,7 +51,7 @@ describe('KegReducer', () => {
 
   test('Should successfully delete keg data to CurrentKegs', () => {
     action = {
-      type: 'Delete_KEG',
+      type: 'DELETE_KEG',
       id: 1
     };
 
