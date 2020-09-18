@@ -1,9 +1,10 @@
 export default (state = {}, action) => {
-  const { id, brand, alcContent, quantity, price } = action;
+  const { id, name, brand, alcContent, quantity, price } = action;
   switch (action.type) {
     case 'ADD_KEG':
       return Object.assign({}, state, {
         [id]: {
+          name: name,
           brand: brand,
           alcContent: alcContent,
           quantity: quantity,
@@ -11,7 +12,7 @@ export default (state = {}, action) => {
           id: id
         }
       });
-    case 'DELETE_DEG':
+    case 'DELETE_KEG':
       const newState = { ...state };
       delete newState[id];
       return newState;
