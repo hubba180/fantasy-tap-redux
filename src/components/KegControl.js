@@ -3,6 +3,7 @@ import KegList from "./KegList";
 import { v4 } from 'uuid';
 import NewKegForm from "./NewKegForm";
 import KegDetail from "./KegDetail";
+import { connect } from 'react-redux';
 
 class KegControl extends React.Component {
   constructor(props) {
@@ -61,10 +62,19 @@ class KegControl extends React.Component {
   }
 
   handleAddNewKeg = (newKeg) => {
-    const newCurrentKegList = this.state.CurrentKegs.concat(newKeg);
-    this.setState({
-      CurrentKegs: newCurrentKegList,
-      FormSwitch: false});
+    const { dispatch } = this.props;
+    const { id, name, brand, alcContent, price, quantity } = newTicket;
+    const action = {
+      type: 'ADD_TICKET',
+      id: id,
+      names: name,
+      brand: brand,
+      alcContent: alcContent,
+      price: price,
+      quantity: quantity
+    }
+    dispatch(action);
+    this.setState({FormSwitch: false});
   }
 
   handleServeDrink = (id) => {
@@ -124,4 +134,5 @@ class KegControl extends React.Component {
   }
 }
 
+KegControl = connect()(KegControl);
 export default KegControl
