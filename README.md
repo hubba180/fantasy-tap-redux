@@ -1,4 +1,4 @@
-*<h1 align = "center"> Fantasy Tap Room**
+*<h1 align = "center"> Fantasy Tap Room 2.0**
 
 
 **<h3 align="center">An interactive tracker for Fantasy Tap's keg inventory**
