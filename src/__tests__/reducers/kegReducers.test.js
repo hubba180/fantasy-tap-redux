@@ -38,4 +38,18 @@ describe('KegReducer', () => {
       }
     });
   });
+  test('Should successfully delete keg data to CurrentKegs', () => {
+    const {id, name, brand, alcContent, quantity, price } = KegData;
+    action = {
+      type: 'Delete_KEG',
+      name: name,
+      brand: brand,
+      alcContent: alcContent,
+      quantity: quantity,
+      price: price,
+      id: id
+    };
+
+    expect(KegReducer({}, action)).toEqual({});
+  });
 });
