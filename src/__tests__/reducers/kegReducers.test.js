@@ -26,7 +26,7 @@ describe('KegReducer', () => {
     expect(KegReducer({}, { type: null })).toEqual({});
   });
   test('Should successfully add new keg data to CurrentKegs', () => {
-    const {id, name, brand, alcContent, quantity, price } = KegData[0];
+    const {id, name, brand, alcContent, quantity, price } = KegData;
     action = {
       type: 'ADD_KEG',
       name: name,
@@ -48,13 +48,14 @@ describe('KegReducer', () => {
       }
     });
   });
+
   test('Should successfully delete keg data to CurrentKegs', () => {
     action = {
       type: 'Delete_KEG',
-      id: 2
+      id: 1
     };
 
-    expect(KegReducer({...KegData}, action)).toEqual({
+    expect(KegReducer(KegData, action)).toEqual({
       2: {
         name: 'Beer2',
         brand: 'Beer Brand2',
