@@ -11,48 +11,48 @@ class KegControl extends React.Component {
     this.state = {
       FormSwitch: false,
       SelectedKeg: null,
-      CurrentKegs: [
-        {
-          name: "Dragon Saliva",
-          brand: "Fantasy Tap",
-          alcContent: "98%",
-          price: 15,
-          quantity: 1,
-          id: v4()
-        },
-        {
-          name: "Hero's Bane",
-          brand: "Fantasy Tap",
-          alcContent: "5%",
-          price: 6,
-          quantity: 124,
-          id: v4()
-        },
-        {
-          name: "Troll Power",
-          brand: "Doom Brew",
-          alcContent: "9%",
-          price: 7,
-          quantity: 124,
-          id: v4()
-        },
-        {
-          name: "Uruk-Hai",
-          brand: "Mordor MorBeer",
-          alcContent: "7%",
-          price: 8,
-          quantity: 124,
-          id: v4()
-        },
-        {
-          name: "The Witches Whip",
-          brand: "Fantasy Tap",
-          alcContent: "5%",
-          price: 6,
-          quantity: 124,
-          id: v4()
-        }
-      ]
+      // CurrentKegs: [
+      //   {
+      //     name: "Dragon Saliva",
+      //     brand: "Fantasy Tap",
+      //     alcContent: "98%",
+      //     price: 15,
+      //     quantity: 1,
+      //     id: v4()
+      //   },
+      //   {
+      //     name: "Hero's Bane",
+      //     brand: "Fantasy Tap",
+      //     alcContent: "5%",
+      //     price: 6,
+      //     quantity: 124,
+      //     id: v4()
+      //   },
+      //   {
+      //     name: "Troll Power",
+      //     brand: "Doom Brew",
+      //     alcContent: "9%",
+      //     price: 7,
+      //     quantity: 124,
+      //     id: v4()
+      //   },
+      //   {
+      //     name: "Uruk-Hai",
+      //     brand: "Mordor MorBeer",
+      //     alcContent: "7%",
+      //     price: 8,
+      //     quantity: 124,
+      //     id: v4()
+      //   },
+      //   {
+      //     name: "The Witches Whip",
+      //     brand: "Fantasy Tap",
+      //     alcContent: "5%",
+      //     price: 6,
+      //     quantity: 124,
+      //     id: v4()
+      //   }
+      // ]
     }
   }
   handleSelectedKeg = (id) => {
@@ -91,11 +91,13 @@ class KegControl extends React.Component {
   }
 
   handleDeletingKeg = (id) => {
-    const newKegList = this.state.CurrentKegs.filter(keg => keg.id !== id);
-    this.setState({
-      CurrentKegs: newKegList,
-      SelectedKeg: null
-    });
+    const { dispatch } = this.props;
+    const action = {
+      type: 'DELETE_Keg',
+      id: id
+    }
+    dispatch(action);
+    this.setState({SelectedKeg: null});
   }
 
   handleClick = () => {
