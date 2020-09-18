@@ -4,19 +4,29 @@ describe('KegReducer', () => {
 
   let action;
   const KegData = {
-    name: 'Beer',
-    brand: 'Beer Brand',
-    alcContet: '10%',
-    quantity: 124,
-    price: 10.99,
-    id: 1
+    1: {
+      name: 'Beer',
+      brand: 'Beer Brand',
+      alcContet: '10%',
+      quantity: 124,
+      price: 10.99,
+      id: 1
+      },
+    2: {
+      name: 'Beer2',
+      brand: 'Beer Brand2',
+      alcContet: '102%',
+      quantity: 1242,
+      price: 102.99,
+      id: 2
+      }
   };
 
   test('Should return default state if there is no action type passed into the reducer', () => {
     expect(KegReducer({}, { type: null })).toEqual({});
   });
   test('Should successfully add new keg data to CurrentKegs', () => {
-    const {id, name, brand, alcContent, quantity, price } = KegData;
+    const {id, name, brand, alcContent, quantity, price } = KegData[0];
     action = {
       type: 'ADD_KEG',
       name: name,
@@ -39,17 +49,20 @@ describe('KegReducer', () => {
     });
   });
   test('Should successfully delete keg data to CurrentKegs', () => {
-    const {id, name, brand, alcContent, quantity, price } = KegData;
     action = {
       type: 'Delete_KEG',
-      name: name,
-      brand: brand,
-      alcContent: alcContent,
-      quantity: quantity,
-      price: price,
-      id: id
+      id: 2
     };
 
-    expect(KegReducer({}, action)).toEqual({});
+    expect(KegReducer({...KegData}, action)).toEqual({
+      2: {
+        name: 'Beer2',
+        brand: 'Beer Brand2',
+        alcContet: '102%',
+        quantity: 1242,
+        price: 102.99,
+        id: 2
+        }
+    });
   });
 });
