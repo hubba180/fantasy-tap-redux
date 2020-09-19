@@ -1,11 +1,9 @@
 import React from "react";
 import KegList from "./KegList";
-import { v4 } from 'uuid';
 import NewKegForm from "./NewKegForm";
 import KegDetail from "./KegDetail";
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
-import { propTypes } from "react-bootstrap/esm/Image";
 
 class KegControl extends React.Component {
   constructor(props) {
@@ -17,15 +15,15 @@ class KegControl extends React.Component {
   }
   handleSelectedKeg = (id) => {
     console.log(id)
-    const selectedKeg = this.state.CurrentKegs.filter(keg => keg.id === id)[0];
+    const selectedKeg = this.props.CurrentKegs[id];
     this.setState({SelectedKeg: selectedKeg});
   }
 
   handleAddNewKeg = (newKeg) => {
     const { dispatch } = this.props;
-    const { id, name, brand, alcContent, price, quantity } = newTicket;
+    const { id, name, brand, alcContent, price, quantity } = newKeg;
     const action = {
-      type: 'ADD_TICKET',
+      type: 'ADD_KEG',
       id: id,
       names: name,
       brand: brand,
@@ -53,7 +51,7 @@ class KegControl extends React.Component {
   handleDeletingKeg = (id) => {
     const { dispatch } = this.props;
     const action = {
-      type: 'DELETE_Keg',
+      type: 'DELETE_KEG',
       id: id
     }
     dispatch(action);
