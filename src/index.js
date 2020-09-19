@@ -7,6 +7,49 @@ import { createStore } from 'redux';
 import reducer from './reducers/KegReducer';
 import { Provider } from 'react-redux';
 
+// const CurrentKegs =  {
+      //   {
+      //     name: "Dragon Saliva",
+      //     brand: "Fantasy Tap",
+      //     alcContent: "98%",
+      //     price: 15,
+      //     quantity: 1,
+      //     id: v4()
+      //   },
+      //   {
+      //     name: "Hero's Bane",
+      //     brand: "Fantasy Tap",
+      //     alcContent: "5%",
+      //     price: 6,
+      //     quantity: 124,
+      //     id: v4()
+      //   },
+      //   {
+      //     name: "Troll Power",
+      //     brand: "Doom Brew",
+      //     alcContent: "9%",
+      //     price: 7,
+      //     quantity: 124,
+      //     id: v4()
+      //   },
+      //   {
+      //     name: "Uruk-Hai",
+      //     brand: "Mordor MorBeer",
+      //     alcContent: "7%",
+      //     price: 8,
+      //     quantity: 124,
+      //     id: v4()
+      //   },
+      //   {
+      //     name: "The Witches Whip",
+      //     brand: "Fantasy Tap",
+      //     alcContent: "5%",
+      //     price: 6,
+      //     quantity: 124,
+      //     id: v4()
+      //   }
+      // }
+
 const store = createStore(reducer);
 
 ReactDOM.render(
