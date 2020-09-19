@@ -4,6 +4,8 @@ import { v4 } from 'uuid';
 import NewKegForm from "./NewKegForm";
 import KegDetail from "./KegDetail";
 import { connect } from 'react-redux';
+import PropTypes from "prop-types";
+import { propTypes } from "react-bootstrap/esm/Image";
 
 class KegControl extends React.Component {
   constructor(props) {
@@ -79,7 +81,7 @@ class KegControl extends React.Component {
       buttonText = "Return To Current Kegs";
     }
     else if (this.state.FormSwitch === false) {
-      CurrentVisibleState = <KegList currentKegs = {this.state.CurrentKegs} onKegSelection= {this.handleSelectedKeg} />;
+      CurrentVisibleState = <KegList currentKegs = {this.props.CurrentKegs} onKegSelection= {this.handleSelectedKeg} />;
       buttonText = "Add New Keg";
     } else {
       CurrentVisibleState = <NewKegForm addNewKeg= {this.handleAddNewKeg} />
@@ -94,5 +96,13 @@ class KegControl extends React.Component {
   }
 }
 
-KegControl = connect()(KegControl);
+KegControl.propTypes = {
+  CurrentKegs: PropTypes.object
+};
+
+const mapStateToProps = (state) => {
+  return {CurrentKegs: state}
+}
+
+KegControl = connect(mapStateToProps)(KegControl);
 export default KegControl
